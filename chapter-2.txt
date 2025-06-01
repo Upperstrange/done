@@ -1,0 +1,37 @@
+CHAPTER 2
+LITERATURE REVIEW
+
+2.1 Introduction
+This chapter delves into the body of scholarly work and industrial practices that inform the present project’s scope and methodology. It begins with a focused introduction to the core themes of this study—autonomous or semi-autonomous water quality monitoring, data-driven environmental assessment, and predictive analytics—and then highlights how these elements have evolved in recent research. The literature review examines recent developments, theoretical foundations, and various state-of-the-art solutions for water quality parameter measurement and forecasting. Following a survey of existing work, this chapter summarizes the key insights, discusses relevant theoretical aspects, and provides general analyses and mathematical considerations integral to the approach. In doing so, it establishes a firm intellectual context and rationale for the strategies adopted in this project. The project centres on developing a manually controlled boat equipped with sensors to monitor water quality, integrated with an ESP32 for data transmission, and analyzed through an LSTM-based machine learning model. This setup aims to capture and predict water quality metrics in real time, offering a novel approach to environmental monitoring. By synthesizing existing literature on similar technologies and methodologies, this project leverages proven strategies while innovating on deployment and analysis, particularly in the context of Assam’s diverse aquatic ecosystems.
+
+2.2 Literature Review
+Present State / Recent Developments in the Work Area:
+Advances in environmental monitoring have increasingly leaned towards IoT-enabled distributed sensor networks for real-time, continuous data acquisition from expansive and remote water bodies (IoT-based water quality monitoring system, 2021). The use of microcontrollers like ESP32 has facilitated the development of low-power, effective communication systems that transmit water-quality data to cloud-based platforms, enabling immediate processing and accessibility. Furthermore, the application of LSTM networks has become prevalent for analyzing these data streams, allowing for the effective prediction of environmental parameters over time due to their ability to model time-series dependencies [1].
+
+Brief Background Theory:
+Key water quality indicators such as pH, turbidity, total dissolved solids (TDS), temperature, and conductivity are crucial for assessing the health of aquatic environments. Each parameter provides insights into different aspects of water quality, from biological activity to chemical contamination. Traditionally, time-series analysis, including ARIMA models, has been employed to predict these parameters. However, LSTMs offer superior capabilities in handling non-linear data and learning from long-term dependencies, making them ideal for dynamic and complex environmental datasets [2].
+
+2.3 Literature Survey
+Autonomous Monitoring Platforms:
+Research has evolved from fixed-location monitoring stations to mobile platforms like drones and boats, which offer enhanced spatial data collection capabilities (Mirza, 2023). These platforms are particularly beneficial in regions with extensive water bodies where fixed stations cannot adequately capture spatial variations.
+Sensor Integration and IoT Frameworks:
+The integration of various sensors into a single platform using platforms such as Arduino and ESP32 has streamlined data collection processes, allowing for more comprehensive monitoring and simplified deployment (IoT-based water quality monitoring system, 2021).
+Data Analytics and Predictive Models:
+LSTMs have demonstrated significant potential in predicting water quality from time-series data, outperforming traditional models by accommodating seasonal patterns and unexpected environmental changes [3].
+Lack of Region-Specific Datasets:
+Despite global advancements, specific locales like Assam lack targeted data, which hinders localized prediction and analysis. This project aims to address this gap by creating a new dataset that could serve as a benchmark for future studies (Mirza, 2023).
+Evaluation of Machine Learning Algorithms for Classification:
+Recent studies have focused on evaluating multiple machine learning algorithms to determine their suitability for water quality classification tasks. In particular, Random Forest demonstrated superior accuracy (70.12%) compared to K-Nearest Neighbors (59.14%) and Decision Trees (58.84%) due to its ensemble structure, which reduces overfitting and handles non-linear relationships effectively. This comparative analysis emphasizes the importance of selecting robust, interpretable models that balance accuracy, scalability, and computational efficiency for practical deployment in water quality monitoring systems (Sharma et al., 2024).
+
+Use of Ensemble Learning and Big Data Frameworks:
+The application of ensemble learning methods like Random Forest combined with big data frameworks such as PySpark has shown excellent results in predicting water potability. A study by Alomani et al. (2022) developed a Random Forest classifier using ten features, including pH, turbidity, conductivity, and sulfate levels, achieving 100% accuracy and F1-score. The model was built on Apache Spark using PySpark MLlib, highlighting the scalability and speed advantages in handling large datasets. Their work also emphasized robust preprocessing steps such as null-value imputation, feature standardization, and pipeline automation—demonstrating the synergy between ensemble methods and distributed computing in improving real-time water quality assessments.
+
+Deep learning with combined Normalization for Time-series Water Quality forecasting:
+Mahesh et al. (2024) introduced an advanced LSTM-based architecture integrated with a Combined Normalizer (LSTM-CN) for accurate prediction of water quality parameters, particularly pH. The model utilizes wavelet-based time series decomposition and three normalization strategies (Z-score, Interval, and Max) for robust preprocessing. Additionally, attention mechanisms were incorporated to capture spatial-temporal dependencies in multi-factor datasets. Tested on data from 37 water stations over 705 days, the model achieved 99.3% accuracy, 95% precision, and 93.6% recall, outperforming other state-of-the-art methods like FTGCN, BPNN, and ANFIS. The architecture’s ability to handle nonlinear sequences and multi-source inputs makes it a promising solution for real-time smart water management systems.
+
+
+2.4 Summarized Outcome of the Literature Review
+The review underscores the efficacy and potential of IoT and LSTM models in enhancing real-time water quality monitoring systems. Yet, it also highlights a critical shortfall in localized data, especially in less-studied regions. This project seeks to mitigate this by developing a comprehensive dataset for Assam, enhancing model training, and improving predictive accuracy for local water management strategies.
+
+2.5 Conclusions
+This literature review establishes a solid foundation for the project, highlighting the integration of advanced technological solutions in environmental monitoring and the critical need for localized data creation and analysis. It sets the stage for practical implementation, where these methodologies will be applied to develop a tailored solution for monitoring Assam's water bodies, thereby contributing significantly to local and global environmental management practices.

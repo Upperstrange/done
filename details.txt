@@ -1,0 +1,19 @@
+Cloud-Based Water Quality Surveillance System for Hybrid Predictive Analysis of Water Bodies
+Project report submitted
+in partial fulfilment of the requirement for the degree of
+Bachelor of Technology
+in
+Electronics and Telecommunication Engineering
+SUBMITTED BY
+Abhijit Das (210611514053)
+Arnall Saikia (210611514054)
+Nitish Gogoi (210610014021)
+Rajarshi Dutta (210611014046)
+Under the guidance of 
+Prof. Dinesh Shankar Pegu
+Associate Professor, ETE
+
+DEPARTMENT OF ELECTRONICS & TELECOMMUNICATION ENGINEERING
+ASSAM ENGINEERING COLLEGE
+JALUKBARI- 781013, GUWAHATI
+June 2025

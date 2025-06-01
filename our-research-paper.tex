@@ -1,0 +1,311 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Cloud-Based Water Quality Surveillance System for Hybrid Predictive Analysis of Water Bodies}
+
+\author{\IEEEauthorblockN{Abhijit Das}
+\IEEEauthorblockA{\textit{Department of Electronics \& Telecommunication Engineering} \\
+\textit{Assam Engineering College}\\
+Guwahati, India \\
+210611514053}
+\and
+\IEEEauthorblockN{Arnall Saikia}
+\IEEEauthorblockA{\textit{Department of Electronics \& Telecommunication Engineering} \\
+\textit{Assam Engineering College}\\
+Guwahati, India \\
+210611514054}
+\and
+\IEEEauthorblockN{Nitish Gogoi}
+\IEEEauthorblockA{\textit{Department of Electronics \& Telecommunication Engineering} \\
+\textit{Assam Engineering College}\\
+Guwahati, India \\
+210610014021}
+\and
+\IEEEauthorblockN{Rajarshi Dutta}
+\IEEEauthorblockA{\textit{Department of Electronics \& Telecommunication Engineering} \\
+\textit{Assam Engineering College}\\
+Guwahati, India \\
+210611014046}
+}
+
+\maketitle
+
+\begin{abstract}
+The critical challenge of water resource management in developing regions necessitates innovative monitoring solutions. We present an IoT-enabled edge-to-cloud surveillance system that automates water quality analysis through a remote-controlled aquatic vehicle equipped with multi-parameter sensors (pH, turbidity, temperature, TDS) and multi-model machine learning to address these challenges through four operational paradigms: predictive threat forecasting, pollution source identification, habitat health assessment, and infrastructure risk analysis. Unlike existing manual sampling methods that produce sparse temporal data, our system enables continuous data collection, capturing dynamic water quality fluctuations critical for machine learning applications. The architecture integrates the collected sensor data with Firebase cloud infrastructure, where it undergoes automated preprocessing before feeding into hybrid machine learning models. The machine learning applications include processing of temporal sequences for contamination pattern forecasting, detection of industrial discharge signatures, evaluation of habitat viability against species-specific thresholds and prediction of infrastructure degradation risks from corrosive water conditions. An analytical dashboard synthesizes these outputs into actionable interfaces including parameter visualization maps, contamination event timelines and predictive maintenance alerts. Field surveillance enhances the system's capacity to detect transient pollution events invisible to periodic sampling while generating explainable risk assessments for diverse stakeholders – from aquaculture operators monitoring algal bloom precursors to municipal authorities tracking pipe corrosion trends. By combining robotic mobility with adaptive machine learning, this solution transforms sparse sensor data into strategic insights, creating a scalable framework for water resource stewardship. The open dataset generated through continuous monitoring addresses a critical gap in hydrological research, particularly for developing regions requiring cost-effective alternatives to conventional laboratory analysis.
+\end{abstract}
+
+\begin{IEEEkeywords}
+water quality monitoring, IoT, machine learning, cloud computing, predictive analytics, environmental monitoring
+\end{IEEEkeywords}
+
+\section{Introduction}
+This project focuses on environmental monitoring, specifically water quality surveillance for the water bodies in and around Guwahati, Assam, through sensor integration, wireless data transmission, and machine learning-based data analysis. Growing populations, industrial expansions, and changes in agricultural practices have pressured water bodies, causing ecological shifts due to chemical runoff, untreated waste, and climate changes. Consequently, water quality monitoring is crucial for environmental stewardship, resource management, and public health.
+
+Traditional water quality assessments rely on manual sampling and laboratory analyses, which are time-consuming and labour-intensive, often resulting in sparse data that fails to capture rapid changes in water quality. With technological advancements, embedded systems, sensor networks, and IoT devices enable real-time, continuous monitoring of environmental parameters. These technologies allow data collection from remote locations, cloud storage, and advanced analytics, such as machine learning models, to interpret and predict water quality trends.
+
+The motivation behind this work stems from several key factors:
+\begin{itemize}
+\item The absence of comprehensive, publicly accessible datasets for local water bodies in Assam, limiting accurate predictive modeling and comparative studies
+\item The shortcomings of existing monitoring methods that rely on infrequent, manual sampling
+\item The growing demand for continuous, real-time, and cost-effective monitoring solutions in regions like Assam
+\item The need for localized, high-frequency datasets to enable more accurate and context-specific insights
+\end{itemize}
+
+Our proposed methodology integrates a manually controlled, 3D-printed boat equipped with on-board sensors (TDS, conductivity, pH, temperature, and turbidity) and wireless communication (ESP32 to Firebase) for dynamic, continuous data collection. The system employs sophisticated LSTM-based predictive analytics for time series forecasting and corrosion risk assessment, alongside a Random Forest model for quality grade assessment, transforming raw measurements into actionable forecasts and classifications.
+
+The primary objective of this work is to develop and implement a manually operated, 3D-printed boat equipped with essential water quality sensors and a reliable wireless communication system to continuously collect, transmit, store, and analyze water quality data in real-time using a cloud-based platform. Secondary objectives include building a robust, region-specific dataset, leveraging machine learning for predictive insights, and providing an expandable framework for other environmental monitoring contexts.
+
+\section{Literature Review}
+Recent developments in environmental monitoring have increasingly focused on IoT-enabled distributed sensor networks for real-time, continuous data acquisition from expansive and remote water bodies. The use of microcontrollers like ESP32 has facilitated the development of low-power, effective communication systems that transmit water-quality data to cloud-based platforms, enabling immediate processing and accessibility. Furthermore, the application of LSTM networks has become prevalent for analyzing these data streams, allowing for effective prediction of environmental parameters over time due to their ability to model time-series dependencies.
+
+Key water quality indicators such as pH, turbidity, total dissolved solids (TDS), temperature, and conductivity are crucial for assessing the health of aquatic environments. Each parameter provides insights into different aspects of water quality, from biological activity to chemical contamination. Traditionally, time-series analysis, including ARIMA models, has been employed to predict these parameters. However, LSTMs offer superior capabilities in handling non-linear data and learning from long-term dependencies, making them ideal for dynamic and complex environmental datasets.
+
+Research has evolved from fixed-location monitoring stations to mobile platforms like drones and boats, which offer enhanced spatial data collection capabilities. These platforms are particularly beneficial in regions with extensive water bodies where fixed stations cannot adequately capture spatial variations. The integration of various sensors into a single platform using platforms such as Arduino and ESP32 has streamlined data collection processes, allowing for more comprehensive monitoring and simplified deployment.
+
+Recent studies have focused on evaluating multiple machine learning algorithms to determine their suitability for water quality classification tasks. In particular, Random Forest demonstrated superior accuracy (70.12\%) compared to K-Nearest Neighbors (59.14\%) and Decision Trees (58.84\%) due to its ensemble structure, which reduces overfitting and handles non-linear relationships effectively. The application of ensemble learning methods like Random Forest combined with big data frameworks such as PySpark has shown excellent results in predicting water potability, achieving 100\% accuracy and F1-score in some cases.
+
+Advanced LSTM-based architectures integrated with Combined Normalization (LSTM-CN) have been introduced for accurate prediction of water quality parameters, particularly pH. These models utilize wavelet-based time series decomposition and multiple normalization strategies for robust preprocessing, along with attention mechanisms to capture spatial-temporal dependencies in multi-factor datasets. Tested on data from 37 water stations over 705 days, such models have achieved 99.3\% accuracy, 95\% precision, and 93.6\% recall, outperforming other state-of-the-art methods.
+
+Despite these global advancements, specific locales like Assam lack targeted data, which hinders localized prediction and analysis. This project aims to address this gap by creating a new dataset that could serve as a benchmark for future studies, while leveraging the proven effectiveness of IoT, LSTM models, and ensemble learning methods in enhancing real-time water quality monitoring systems.
+
+\section{System Architecture}
+The system architecture consists of several key components working together to enable comprehensive water quality monitoring and analysis. The core of the system is a custom-designed, 3D-printed PLA boat hull that serves as a stable platform for all electronic components. The boat's design provides buoyancy and protection for sensitive electronics while maintaining maneuverability in water bodies.
+
+\subsection{Hardware Architecture}
+The hardware architecture integrates several key components:
+
+\subsubsection{Sensor System}
+\begin{itemize}
+\item TDS sensor for measuring total dissolved solids
+\item pH sensor for acidity/alkalinity measurement
+\item Temperature sensor (DS18B20) for water temperature monitoring
+\item Turbidity sensor for water clarity assessment
+\item NEO 6M GPS module for location tracking
+\end{itemize}
+
+\subsubsection{Control and Communication}
+\begin{itemize}
+\item ESP32 microcontroller for central processing and wireless communication
+\item Arduino Mega for sensor interfacing and power management
+\item Micro SD Card Reader Module for local data storage
+\item 1000kV Brushless DC (BLDC) motor with 30A ESC for propulsion
+\item 13.1V LiPo battery for power supply
+\item Flysky CT6B transmitter/receiver system for manual control
+\item Servo motor for directional control
+\end{itemize}
+
+\subsection{Software Architecture}
+The software architecture implements a comprehensive data flow:
+
+\subsubsection{Data Acquisition and Storage}
+\begin{itemize}
+\item Real-time sensor data acquisition every 5 seconds
+\item GPS coordinate logging with each measurement
+\item Local data backup on Micro SD card
+\item Wireless transmission to Firebase Realtime Database
+\end{itemize}
+
+\subsubsection{Cloud Infrastructure}
+\begin{itemize}
+\item Firebase Realtime Database for cloud storage
+\item Google Cloud VM with Coolify for hosting
+\item FastAPI backend server for data processing
+\item React-based frontend dashboard with Tailwind CSS
+\end{itemize}
+
+\subsubsection{Machine Learning Pipeline}
+The system implements three distinct machine learning models:
+\begin{itemize}
+\item LSTM model for time series forecasting of water quality parameters
+\item LSTM model for corrosion risk assessment
+\item Random Forest model for water quality grade assessment
+\end{itemize}
+
+\subsection{System Integration}
+The components are integrated through a modular architecture:
+\begin{enumerate}
+\item Sensor data is collected and processed by the ESP32
+\item Data is simultaneously stored locally and transmitted to the cloud
+\item The FastAPI server processes the data and runs ML models
+\item Results are visualized on the React dashboard
+\item Manual control system enables targeted data collection
+\end{enumerate}
+
+This architecture provides a robust foundation for continuous water quality monitoring, real-time data analysis, and predictive modeling, specifically tailored for water bodies in the Guwahati region.
+
+\section{Methodology}
+The system architecture consists of several key components working together to enable comprehensive water quality monitoring and analysis. The core of the system is a custom-designed, 3D-printed PLA boat hull that serves as a stable platform for all electronic components. The boat's design provides buoyancy and protection for sensitive electronics while maintaining maneuverability in water bodies.
+
+\subsection{Hardware Components}
+The system integrates the following key hardware components:
+\begin{itemize}
+\item ESP32 microcontroller for central processing, sensor management, and wireless communication
+\item Water quality sensors (TDS, pH, temperature, and turbidity) interfaced with ESP32
+\item NEO 6M GPS module for location data acquisition
+\item Micro SD Card Reader Module for local data storage
+\item 1000kV Brushless DC (BLDC) motor with 30A ESC for propulsion
+\item 13.1V LiPo battery for power supply
+\item Flysky CT6B transmitter/receiver system for manual control
+\item Servo motor for directional control
+\end{itemize}
+
+\subsection{Data Flow Architecture}
+The system implements a comprehensive data flow architecture:
+\begin{enumerate}
+\item Sensor data acquisition occurs every 5 seconds through the ESP32
+\item GPS coordinates are simultaneously captured using the NEO 6M module
+\item Data is formatted into packets and transmitted to Firebase Realtime Database
+\item Local backup storage is maintained on the Micro SD card
+\item A FastAPI server hosted on Google Cloud VM processes the data
+\item Three machine learning models analyze the data:
+    \begin{itemize}
+    \item LSTM model for time series forecasting
+    \item LSTM model for corrosion risk assessment
+    \item Random Forest model for water quality grade assessment
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Software Architecture}
+The software stack includes:
+\begin{itemize}
+\item Arduino IDE for ESP32 programming
+\item FastAPI backend for data processing and API endpoints
+\item Firebase Realtime Database for cloud storage
+\item Google Cloud VM with Coolify for hosting
+\item React-based frontend dashboard with Tailwind CSS
+\item Machine learning implementation using TensorFlow and scikit-learn
+\end{itemize}
+
+\subsection{Development Tools}
+The project utilized various development tools:
+\begin{itemize}
+\item CAD software (Autodesk Fusion 360) for boat design
+\item 3D printing technology for hull fabrication
+\item Git for version control
+\item Visual Studio Code for development
+\item Measurement and calibration tools for sensor setup
+\end{itemize}
+
+\subsection{Preliminary Results}
+Initial testing has demonstrated:
+\begin{itemize}
+\item Stable sensor readings in controlled environments
+\item Reliable wireless data transmission to Firebase
+\item Successful local data logging functionality
+\item Functional real-time dashboard implementation
+\item Promising initial results from machine learning models
+\item Effective manual control system for the boat
+\end{itemize}
+
+The system's architecture and implementation provide a robust foundation for continuous water quality monitoring, real-time data analysis, and predictive modeling, specifically tailored for water bodies in the Guwahati region.
+
+\section{Results and Discussion}
+The results presented in this section encompass both raw sensor measurements and predictions generated by our machine learning models. Data was collected continuously over an extended period, enabling the development of a comprehensive historical dataset of water parameters. The key parameters—pH, turbidity, TDS, temperature, and conductivity—were recorded and predicted for future time intervals using the trained LSTM model.
+
+\subsection{Data Analysis and Model Performance}
+The time-series analysis revealed several significant patterns:
+\begin{itemize}
+\item Turbidity showed noticeable increases following rainfall events, indicated by distinct spikes in the measurements
+\item pH values maintained relative stability with minor diurnal variations, likely influenced by biological activity
+\item Temperature data closely followed ambient environmental conditions, with expected diurnal patterns
+\item The LSTM model demonstrated strong predictive capabilities, particularly for temperature parameters, achieving a performance score of 0.9716
+\end{itemize}
+
+\subsection{Model Performance Metrics}
+The error metrics analysis revealed:
+\begin{itemize}
+\item Generally low RMSE and MAE values, indicating close alignment between predicted and actual measurements
+\item Varying prediction accuracy across different parameters, suggesting differential model performance based on parameter characteristics
+\item Some parameters exhibited slightly higher errors, potentially due to data variability or sensor noise
+\end{itemize}
+
+\subsection{Significance of Results}
+The results obtained carry substantial environmental and managerial significance:
+\begin{itemize}
+\item Real-time measurement and prediction capabilities enable early detection of contamination events
+\item The system supports proactive water treatment interventions and public health safety measures
+\item Understanding parameter interactions aids in informed decision-making for conservation and resource allocation
+\item Predictive capabilities facilitate proactive rather than reactive environmental management
+\end{itemize}
+
+\subsection{Challenges and Limitations}
+Several challenges were identified during the analysis:
+\begin{itemize}
+\item Prediction discrepancies following atypical weather events not well represented in training data
+\item Minor sensor drift over time introducing potential biases
+\item Model assumptions of standard seasonal patterns potentially limiting performance during unusual environmental conditions
+\end{itemize}
+
+To address these challenges, we implemented:
+\begin{itemize}
+\item Regular sensor maintenance and recalibration protocols
+\item Periodic model retraining with updated datasets
+\item Enhanced data preprocessing and validation procedures
+\end{itemize}
+
+\subsection{Conclusion}
+The results demonstrate that our integrated hardware-software approach effectively monitors water quality in real-time, with the LSTM model successfully capturing and predicting general trends for each parameter. While the overall performance is encouraging, the identified challenges highlight the need for continuous refinement. Future work will focus on:
+\begin{itemize}
+\item Incorporating more diverse training data
+\item Optimizing model architectures
+\item Implementing dynamic model update mechanisms
+\item Enhancing sensor calibration and maintenance protocols
+\end{itemize}
+
+These outcomes provide a solid foundation for further improvements and highlight the system's potential for enhancing environmental resource management through data-driven insights and forecasting capabilities.
+
+\section{Conclusion}
+This project successfully demonstrated the feasibility of continuous, remote water quality monitoring using an integrated hardware-software stack. By employing a floating platform equipped with essential sensors, we reliably collected data from local water bodies and transmitted it to the cloud in near real-time. The results indicate that our system can not only record changing environmental conditions with sufficient temporal granularity but also leverage historical data to generate predictive insights through the LSTM model.
+
+The outcomes confirm that adopting sensor fusion, IoT-driven communication, and machine learning can substantially enhance our understanding of aquatic environments. The integration of multiple parameters into a cohesive dataset provides richer context for interpreting changes in water quality. The LSTM predictions, although continuously improvable, prove the concept that forecasting future parameter values is possible and beneficial. This proactive approach can guide preventive measures, inform policy decisions, and ultimately contribute to more sustainable environmental practices.
+
+\subsection{Future Work}
+Several promising directions for future development have been identified:
+
+\subsubsection{Hardware Enhancements}
+\begin{itemize}
+\item Implementation of remote-controlled operation with dedicated motor and propeller for greater mobility and precise maneuvering
+\item Integration of GPS module for geospatial context and water quality mapping
+\item Addition of local data logging functionality using SD card for offline operation
+\item Expansion of sensor suite to include dissolved oxygen, chlorophyll, nitrate, and salinity measurements
+\end{itemize}
+
+\subsubsection{Software and Analytics Improvements}
+\begin{itemize}
+\item Extension of predictive modeling to new variables such as algal bloom indicators and microbiological contaminants
+\item Enhancement of early warning systems and conservation planning capabilities
+\item Optimization of water treatment process predictions
+\item Development of more sophisticated spatial analysis tools
+\end{itemize}
+
+The project has established a baseline infrastructure while revealing the potential for scaling and refining these technologies to meet broader and more complex environmental monitoring objectives. The integration of these future enhancements will further strengthen the system's capabilities in supporting sustainable water resource management.
+
+\section*{Acknowledgment}
+We would like to express our sincere gratitude to Prof. Dinesh Shankar Pegu, Associate Professor, Department of Electronics \& Telecommunication Engineering, Assam Engineering College, for his invaluable guidance and support throughout this project.
+
+\begin{thebibliography}{00}
+\bibitem{b1} H. Chen, J. Yang, X. Fu, Q. Zheng, X. Song, Z. Fu, J. Wang, Y. Liang, H. Yin, Z. Liu, J. Jiang, H. Wang, and X. Yang, ``Water quality prediction based on LSTM and attention mechanism: a case study of the Burnett River, Australia,'' Sustainability, vol. 14, no. 20, p. 13231, 2022.
+
+\bibitem{b2} ``IoT-based water quality monitoring system,'' International Journal Of Current Engineering And Scientific Research (IJCESR), vol. 8, no. 1, 2021.
+
+\bibitem{b3} T. M. Mirza, ``Innovative Smart Boat Device for Real-Time Surface Water Quality Monitoring: A Low-Cost and Environmentally Sustainable Solution,'' June 2023.
+
+\bibitem{b4} A. Sharma, A. Bharadwaj, H. Bhatnagar, and R. Kaushik, ``Water Quality Prediction using Machine Learning Models,'' in Proc. of 2022 International Conference on Advances in Computing, Communication and Applied Informatics (ACCAI), pp. 1--6, 2022.
+
+\bibitem{b5} R. Alomani, M. Q. Saleh, M. A. Bukhari, and S. Sharma, ``Prediction of Quality of Water Using Random Forest with Big Data Framework PySpark,'' International Journal of Advanced Computer Science and Applications (IJACSA), vol. 13, no. 2, pp. 57--64, 2022.
+
+\bibitem{b6} N. Mahesh, J. J. Babu, K. Nithya, and S. A. Arunmozhi, ``Water quality prediction using LSTM with combined normalizer for efficient water management,'' Desalination and Water Treatment, vol. 317, p. 100183, 2024.
+\end{thebibliography}
+
+\end{document}

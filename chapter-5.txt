@@ -1,0 +1,22 @@
+CHAPTER 5
+CONCLUSION AND FUTURE SCOPE OF WORK
+
+5.1 Brief Summary of the Work
+This project set out to design and implement a versatile, real-time water quality monitoring system that integrates sensor measurements with cloud-based analysis and machine learning predictions. The primary objective was to develop a functional platform capable of collecting water parameters (pH, turbidity, TDS, temperature, and conductivity) continuously and wirelessly, then transmitting the data to a remote server for storage, visualization, and predictive modelling. To achieve this, a manually controlled boat structure composed of sunboard served as the physical platform, hosting an Arduino Mega for sensor interfacing and an ESP32 module for wireless communication. Data was stored in a Firebase database, processed and predicted by an LSTM model hosted on Render, and made accessible through a user-friendly frontend interface. The methodology emphasized modular integration, efficient data handling, and scalable analytics—facilitated by backend services and machine learning libraries.
+
+5.2 Conclusions
+The project successfully demonstrated the feasibility of continuous, remote water quality monitoring using an integrated hardware-software stack. By employing a floating platform outfitted with essential sensors, data was reliably collected from local water bodies and transmitted to the cloud in near real-time. The results indicate that the system can not only record changing environmental conditions with sufficient temporal granularity but also leverage historical data to generate predictive insights through the LSTM model. This marks a shift from reactive to proactive management of water resources, as stakeholders gain a tool that supports timely decision-making. The outcomes confirm that adopting sensor fusion, IoT-driven communication, and machine learning can substantially enhance our understanding of aquatic environments. The integration of multiple parameters into a cohesive dataset provides richer context for interpreting changes in water quality. The LSTM predictions, although continuously improvable, prove the concept that forecasting future parameter values is possible and beneficial. This proactive approach can guide preventive measures, inform policy decisions, and ultimately contribute to more sustainable environmental practices. The project not only established a baseline infrastructure but also revealed the potential of scaling and refining these technologies to meet broader and more complex environmental monitoring objectives.
+
+5.3 Future Scope of Work
+RC Control with Motor and Propeller: 
+Introducing remote-controlled operation with a dedicated motor and propeller would allow greater mobility and precise manoeuvring of the boat. This would enable targeted sampling in specific areas of water bodies, ensuring that critical zones (e.g., pollution hotspots or inflow points) are accurately assessed.
+GPS Module for Navigation and Mapping Water Body: 
+Incorporating a GPS module would provide geospatial context to every data point collected. Such localization enables the generation of water quality maps, assisting in the identification of patterns, localized contamination sources, and spatial trends. It would support more comprehensive environmental analysis and facilitate better resource management.
+Functionality to Write on SD Card when not Connected to the Internet: 
+By enabling local data logging onto an SD card, the system can continue to function autonomously in remote locations or during network outages. Once connectivity is restored, the stored data can be uploaded. This ensures no loss of valuable environmental data and provides a fail-safe mechanism for continuous monitoring efforts.
+Integration of More Sensors: 
+Adding additional sensors, such as dissolved oxygen, chlorophyll, nitrate, or salinity sensors, can expand the scope and depth of the collected dataset. This would yield a more comprehensive picture of aquatic health, improving model accuracy and enhancing the reliability of predictive insights.
+Collection and Prediction of More Parameters: 
+Beyond the existing parameters, extending predictive modelling to new variables—such as algal bloom indicators or microbiological contaminants—could broaden the project’s utility. Enhanced predictive capabilities would increase its value for early warning systems, conservation planning, and optimizing water treatment processes.
+
+Fig 5.1: Future planned operational block diagram

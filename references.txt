@@ -1,0 +1,8 @@
+REFERENCES
+
+Chen, H., Yang, J., Fu, X., Zheng, Q., Song, X., Fu, Z., Wang, J., Liang, Y., Yin, H., Liu, Z., Jiang, J., Wang, H., & Yang, X. (2022). Water quality prediction based on LSTM and attention mechanism: a case study of the Burnett River, Australia. Sustainability, 14(20), 13231.
+IoT-based water quality monitoring system (2021). In International Journal Of Current Engineering And Scientific Research (IJCESR) (Vol. 8, Issue 1). 
+Mirza, T. M., MD. (2023, June 30). Innovative Smart Boat Device for Real-Time Surface Water Quality Monitoring: A Low-Cost and Environmentally Sustainable Solution.
+A. Sharma, A. Bharadwaj, H. Bhatnagar, and R. Kaushik, “Water Quality Prediction using Machine Learning Models,” in Proc. of 2022 International Conference on Advances in Computing, Communication and Applied Informatics (ACCAI), pp. 1–6.
+R. Alomani, M. Q. Saleh, M. A. Bukhari, and S. Sharma, “Prediction of Quality of Water Using Random Forest with Big Data Framework PySpark,” International Journal of Advanced Computer Science and Applications (IJACSA), vol. 13, no. 2, pp. 57–64, 2022.
+N. Mahesh, J. J. Babu, K. Nithya, and S. A. Arunmozhi, “Water quality prediction using LSTM with combined normalizer for efficient water management,” Desalination and Water Treatment, vol. 317, p. 100183, 2024.
