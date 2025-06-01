@@ -69,9 +69,7 @@ The primary objective of this work is to develop and implement a manually operat
 \section{Literature Review}
 Recent developments in environmental monitoring have increasingly focused on IoT-enabled distributed sensor networks for real-time, continuous data acquisition from expansive and remote water bodies. The use of microcontrollers like ESP32 has facilitated the development of low-power, effective communication systems that transmit water-quality data to cloud-based platforms, enabling immediate processing and accessibility. Furthermore, the application of LSTM networks has become prevalent for analyzing these data streams, allowing for effective prediction of environmental parameters over time due to their ability to model time-series dependencies.
 
-Key water quality indicators such as pH, turbidity, total dissolved solids (TDS), temperature, and conductivity are crucial for assessing the health of aquatic environments. Each parameter provides insights into different aspects of water quality, from biological activity to chemical contamination. Traditionally, time-series analysis, including ARIMA models, has been employed to predict these parameters. However, LSTMs offer superior capabilities in handling non-linear data and learning from long-term dependencies, making them ideal for dynamic and complex environmental datasets.
-
-Research has evolved from fixed-location monitoring stations to mobile platforms like drones and boats, which offer enhanced spatial data collection capabilities. These platforms are particularly beneficial in regions with extensive water bodies where fixed stations cannot adequately capture spatial variations. The integration of various sensors into a single platform using platforms such as Arduino and ESP32 has streamlined data collection processes, allowing for more comprehensive monitoring and simplified deployment.
+Research has evolved from fixed-location monitoring stations to mobile platforms like boats, which offer enhanced spatial data collection capabilities. These platforms are particularly beneficial in regions with extensive water bodies where fixed stations cannot adequately capture spatial variations. The integration of various sensors into a single platform using platforms such as Arduino and ESP32 has streamlined data collection processes, allowing for more comprehensive monitoring and simplified deployment.
 
 Recent studies have focused on evaluating multiple machine learning algorithms to determine their suitability for water quality classification tasks. In particular, Random Forest demonstrated superior accuracy (70.12\%) compared to K-Nearest Neighbors (59.14\%) and Decision Trees (58.84\%) due to its ensemble structure, which reduces overfitting and handles non-linear relationships effectively. The application of ensemble learning methods like Random Forest combined with big data frameworks such as PySpark has shown excellent results in predicting water potability, achieving 100\% accuracy and F1-score in some cases.
 
@@ -91,7 +89,6 @@ The hardware architecture integrates several key components:
 \item pH sensor for acidity/alkalinity measurement
 \item Temperature sensor (DS18B20) for water temperature monitoring
 \item Turbidity sensor for water clarity assessment
-\item NEO 6M GPS module for location tracking
 \end{itemize}
 
 \subsubsection{Control and Communication}
@@ -111,7 +108,6 @@ The software architecture implements a comprehensive data flow:
 \subsubsection{Data Acquisition and Storage}
 \begin{itemize}
 \item Real-time sensor data acquisition every 5 seconds
-\item GPS coordinate logging with each measurement
 \item Local data backup on Micro SD card
 \item Wireless transmission to Firebase Realtime Database
 \end{itemize}
@@ -152,7 +148,6 @@ The system integrates the following key hardware components:
 \begin{itemize}
 \item ESP32 microcontroller for central processing, sensor management, and wireless communication
 \item Water quality sensors (TDS, pH, temperature, and turbidity) interfaced with ESP32
-\item NEO 6M GPS module for location data acquisition
 \item Micro SD Card Reader Module for local data storage
 \item 1000kV Brushless DC (BLDC) motor with 30A ESC for propulsion
 \item 13.1V LiPo battery for power supply
@@ -164,7 +159,6 @@ The system integrates the following key hardware components:
 The system implements a comprehensive data flow architecture:
 \begin{enumerate}
 \item Sensor data acquisition occurs every 5 seconds through the ESP32
-\item GPS coordinates are simultaneously captured using the NEO 6M module
 \item Data is formatted into packets and transmitted to Firebase Realtime Database
 \item Local backup storage is maintained on the Micro SD card
 \item A FastAPI server hosted on Google Cloud VM processes the data
@@ -276,7 +270,6 @@ Several promising directions for future development have been identified:
 \subsubsection{Hardware Enhancements}
 \begin{itemize}
 \item Implementation of remote-controlled operation with dedicated motor and propeller for greater mobility and precise maneuvering
-\item Integration of GPS module for geospatial context and water quality mapping
 \item Addition of local data logging functionality using SD card for offline operation
 \item Expansion of sensor suite to include dissolved oxygen, chlorophyll, nitrate, and salinity measurements
 \end{itemize}
